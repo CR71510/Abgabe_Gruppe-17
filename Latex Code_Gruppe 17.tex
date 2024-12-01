@@ -1,0 +1,90 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{german}
+\usepackage{microtype}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{ragged2e}
+\usepackage{inputenc}
+
+\title{Abgabe 1 für Computergestüzte Methoden}
+\author{Gruppe 17,Filipe Pereira Caetano,Ibrahim Abed,Jana Tiz}
+\date{1.Dezember.2024}
+
+\begin{document}
+
+
+\maketitle
+\tableofcontents
+\newpage
+\section{Der Zentrale Grenzwertsatz}
+
+Der Zentrale Grenzwertsatz (ZGS) ist ein fundamentales Resultat der Wahrscheinlichkeitstheorie, das die Verteilung von Summen unabhängiger,identisch verteilter (i.i.d.) Zuffalsvariablen (ZV) beschreibt. Er besagt, dass unter bestimmten Voraussetzungen die Summe einer großen Anzahl solcher ZV annähernd normalverteilt ist, unabhängig von der Verteilung der einzelnen ZV. Dies ist besonders nützlich, da die Normalverteilung gut untersucht und mathematisch handhabbar ist.
+
+\subsection{Aussage}
+Sei $X_1,X_2,...,X_n$ eine Folge von \emph{i.i.d.} ZV mit dem Erwartungswert $\mu =\mathbb{E}(X_i)$ und der Varianz $\sigma^2=Var(X_i)$, wobei $0 < \sigma^2 < \infty$ gelte. Dann konvergiert die standardisierte summe $Z_n$ dieser ZV für $n \to \infty$ in Verteilung gegen eine Standardnormalverteilung: \footnote{Der Zentrale Grenzwertsatz hat verschiedene Verallgemeinerungen. Eine davon ist der \textbf{Lindeberg-Feller-Zentrale-Grenzwertsatz}\cite[Seite 328]{klenke}, der schwächere Bedingungen an die Unabhänigkeit und die indentische Verteilung der ZV stellt.}
+
+
+
+\begin{equation}\label{eq1}
+    Z_n = \frac{\sum_{i=1}^n X_i-n\mu}{\sigma\sqrt{n}} \xrightarrow{d} \mathcal{N}(0,1).
+\end{equation}
+
+Das bedeutet, dass für große \emph{n} die Summe der ZV näherungsweise normalverteilt ist mit Erwartungwert $n\mu$ und Varianz $n\sigma^2$:
+
+\begin{equation}\label{eq2}
+    \sum_{i=1}^n X_i\sim \mathcal{N} (n\mu,n\sigma^2).
+\end{equation}
+
+
+
+
+\subsection{Erklärung der Standardisierung}
+Um die Summe der ZV in eine Standardnormalverteilung zu transformieren, subtrahiert man den Erwartungswert $n\mu$ und teilt durch die Standardabweichung $\sigma\sqrt{n}$. Dies führt zur obigen Formel \eqref{eq1}. Die Darstellung \eqref{eq2} ist für $n \to \infty$ nicht wohldefiniert.
+
+\subsection{Anwendungen}
+Der ZGS wird in vielen Bereichen der Statistik und der Wahrscheinlichkeitstheorie angewendet. Typische Beispiele sind:
+
+\begin{itemize}
+    \item Der ZGS spielt eine große Rolle bei der Durchführung von Hypothesentests. Bei der Analyse von Hypothesen zu Populationsmittelwerten wird oft die Annahme getroffen, dass die Verteilung der Teststatistik, wie beispielsweise die t-Statistik, bei ausreichend großen Stichproben annähernd normal ist. Diese Voraussetzung ermöglicht die Anwendung gängiger Tests, wie dem t-Test.
+
+    
+\item Der ZGS wird auch verwendet, um Konfidenzintervalle für Populationsmittelwerte zu berechnen. Wenn die Verteilung der Mittelwerte normal ist, können wir Konfidenzintervalle erstellen, die uns eine Schätzung des Bereichs geben, in dem der wahre Populationsmittelwert mit einer bestimmten Wahrscheinlichkeit liegt.
+
+
+
+
+\end{itemize}
+
+\newpage
+\section{Bearbeitung zur Aufgabe 1}
+
+\subsection{Höchste mittlere Temperatur }
+Wir haben erstmal die Spalte (average temperature) als Zahl konnvertiert und dann mit dem befehl =(MAX(J5830:J6193)-32)*5/9 die höchste Tempteratur in Grad Celsius ausgerechnet. Als Ergebnis kam 28,33 raus.
+
+\subsection{Datenbank-Schema }
+
+
+
+\includegraphics[]{Screenshot at Dec 01 23-16-01.png}
+
+\includegraphics[]{Screenshot at Dec 01 23-16-12.png}
+
+\subsection{Umsetzung des Schemas in SQL (DDL)}
+
+\includegraphics[]{Screenshot at Dec 01 23-25-44.png}
+
+\subsection{SQL Abfrage für die höchste mittlere Temperatur in Grad Celsius }
+
+\includegraphics[]{Screenshot at Dec 01 23-30-22.png}
+
+\subsection{GitHub Link zum Latex Code}
+\url{https://github.com/CR71510/Abgabe-Gruppe-17.git}
+
+\newpage
+\begin{thebibliography}{9}
+    \bibitem{klenke} Achim Klenke. \emph{Wahrscheinlichkeitstheorie.} Springer, 3. edition 2013.
+\end{thebibliography}
+
+\end{document}
